@@ -3,6 +3,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
 const Home = () => {
 
@@ -14,6 +15,7 @@ const Home = () => {
             <Text className="text-white"> Go to SignIn </Text>
         </TouchableOpacity>
       </LinearGradient>
+      <StatusBar backgroundColor="#1A91DA" style="light" />
     </SafeAreaView>
   );
 };

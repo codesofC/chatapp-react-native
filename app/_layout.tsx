@@ -27,6 +27,10 @@ export default function RootLayout() {
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+      <Stack.Screen name="(drawer)" options={{ headerShown: false }} />      
+      <Stack.Screen name="chat" options={{ headerShown: false }} />      
+      <Stack.Screen name="details" options={{ headerShown: false }} />      
+
     </Stack>
   );
 }
