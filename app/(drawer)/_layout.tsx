@@ -4,6 +4,7 @@ import CustomDrawer from "@/components/CustomDrawer";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { DrawerItemList } from "@react-navigation/drawer";
 import CustomIcons from "@/components/CustomIcons";
+import { Button } from "react-native";
 
 export default function DrawerLayout() {
   return (
@@ -21,6 +22,7 @@ export default function DrawerLayout() {
           drawerInactiveTintColor: "#1c1c1c",
           drawerPosition: "left",
           drawerType: "front",
+          headerShown: false,
         }}
       >
         <Drawer.Screen
@@ -42,7 +44,7 @@ export default function DrawerLayout() {
             drawerLabel: "Profile",
             drawerIcon: ({ color }) => (
               <CustomIcons name="person-outline" color={color} size={28} />
-            )
+            ),
           }}
         />
         <Drawer.Screen
