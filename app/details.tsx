@@ -1,11 +1,17 @@
-import { View, Text } from 'react-native'
+import { View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import HeaderDetails from "@/components/Details/HeaderDetails";
+import DetailsContent from "@/components/Details/DetailsContent";
 
 const details = () => {
   return (
-    <View>
-      <Text>details</Text>
-    </View>
-  )
-}
+    <SafeAreaView className="flex-1">
+      <View className="flex-1">
+        <HeaderDetails />
+        <DetailsContent />
+      </View>
+    </SafeAreaView>
+  );
+};
 
-export default details
+export default details;

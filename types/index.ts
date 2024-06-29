@@ -33,3 +33,9 @@ export interface SignupDataProps {
     password?: string,
     file: FileProfilPhotoProps | null
 }
+
+export interface EmojiPickerProps {
+    showPicker: boolean,
+    setShowPicker: React.Dispatch<React.SetStateAction<boolean>>,
+    setText: React.Dispatch<React.SetStateAction<string>>
+}
