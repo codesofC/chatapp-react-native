@@ -3,7 +3,7 @@ import { List } from "react-native-paper";
 import CustomIcons from "@/components/CustomIcons";
 import { useState } from "react";
 import { SvgXml } from "react-native-svg";
-import generatorAvatar from "@/constants/generatorAvatar";
+import generatorAvatar from "@/lib/Dicebear/generatorAvatar";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const DetailsContent = () => {

@@ -4,7 +4,6 @@ import CustomDrawer from "@/components/CustomDrawer";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { DrawerItemList } from "@react-navigation/drawer";
 import CustomIcons from "@/components/CustomIcons";
-import { Button } from "react-native";
 
 export default function DrawerLayout() {
   return (

@@ -5,6 +5,8 @@ import { LinearGradient } from 'expo-linear-gradient'
 import InputField from '@/components/InputField'
 import CustomButton from '@/components/CustomButton'
 import { Link, router } from 'expo-router'
+import { signIn } from '@/lib/Firebase'
+
 
 const SignIn = () => {
 
@@ -12,6 +14,17 @@ const SignIn = () => {
     email: "",
     password: ""
   })
+
+  const submitData = async () => {
+    if(!form.email || !form.password) return
+
+    await signIn(form.email, form.password)
+    .then(userId => {
+      if(userId){
+        router.push("/chatlist")
+      }
+    })
+  }
 
 
   return (
@@ -36,7 +49,6 @@ const SignIn = () => {
             <InputField 
               title='Password'
               value={form.password}
-              type='visible-password'
               changeFormFn={e => setForm(prev => ({...prev, password: e}))}
               inputStyles='mt-8'
             />
@@ -50,7 +62,7 @@ const SignIn = () => {
 
             <CustomButton 
               title='Sign In'
-              pressButtonFn={() => router.push('/chatlist')}
+              pressButtonFn={submitData}
               buttonStyle='mt-8 bg-primary'
               textStyle='text-primary-foreground'
             />

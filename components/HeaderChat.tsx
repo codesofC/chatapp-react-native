@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import CustomIcons from "./CustomIcons";
 import { SvgXml } from "react-native-svg";
-import generatorAvatar from "@/constants/generatorAvatar";
+import generatorAvatar from "@/lib/Dicebear/generatorAvatar";
 import { router } from "expo-router";
 
 const HeaderChat = () => {

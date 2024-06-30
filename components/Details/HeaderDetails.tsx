@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import generatorAvatar from "@/constants/generatorAvatar";
+import generatorAvatar from "@/lib/Dicebear/generatorAvatar";
 import { SvgXml } from "react-native-svg";
 
 const HeaderDetails = () => {

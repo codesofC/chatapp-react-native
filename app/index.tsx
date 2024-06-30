@@ -5,7 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
-const Home = () => {
+const App = () => {
 
 
   return (
@@ -20,4 +20,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default App;

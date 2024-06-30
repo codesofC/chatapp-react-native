@@ -1,4 +1,3 @@
-
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -30,7 +29,6 @@ export default function RootLayout() {
       <Stack.Screen name="(drawer)" options={{ headerShown: false }} />      
       <Stack.Screen name="chat" options={{ headerShown: false }} />      
       <Stack.Screen name="details" options={{ headerShown: false }} />      
-
     </Stack>
   );
 }

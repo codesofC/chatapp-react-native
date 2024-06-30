@@ -1,6 +1,8 @@
+import CustomButton from "@/components/CustomButton";
 import HeaderDrawer from "@/components/HeaderDrawer";
 import InputField from "@/components/InputField";
-import generatorAvatar from "@/constants/generatorAvatar";
+import generatorAvatar from "@/lib/Dicebear/generatorAvatar";
+import { signout } from "@/lib/Firebase";
 import { router } from "expo-router";
 import { useState } from "react";
 import { View, Text, TextInput, FlatList, TouchableOpacity } from "react-native";
@@ -11,6 +13,13 @@ const ChatList = () => {
   const [search, setSearch] = useState("");
 
   const data = [1, 2, 3, 4, 5];
+
+  const deconnexionFn = async () => {
+    await signout()
+    .then(() => {
+      router.push("/")
+    })
+  }
 
   const renderItem = ({ item }: { item: number }) => (
     <TouchableOpacity
@@ -48,6 +57,7 @@ const ChatList = () => {
                   className="border border-gray-300 px-2 py-1 rounded-md"
                 />
               </View>
+              <CustomButton title="Sign out" buttonStyle="bg-primary px-3 py-2" textStyle="text-white" pressButtonFn={deconnexionFn}  />
             </View>
           );
         }}

@@ -12,7 +12,7 @@ const FooterChat = () => {
 
   return (
     <View className="w-full">
-      <View className="flex-row items-center border border-gray-300 rounded-md mx-2 px-3 py-1">
+      {/* <View className="flex-row items-center border border-gray-300 rounded-md mx-2 px-3 py-1">
         <TouchableOpacity activeOpacity={0.8} onPress={() => setShowPicker(prev => !prev)}>
           <Entypo name="emoji-happy" size={20} color="gray" />
         </TouchableOpacity>
@@ -33,8 +33,8 @@ const FooterChat = () => {
             <CustomIcons name="send-sharp" size={20} color="white" />
           </TouchableOpacity>
         </View>
-      </View>
-      <EmojiPicker setShowPicker={setShowPicker} setText={setText} showPicker={showPicker} />
+      </View> */}
+      {/* <EmojiPicker setShowPicker={setShowPicker} setText={setText} showPicker={showPicker} /> */}
     </View>
   );
 };

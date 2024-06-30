@@ -10,7 +10,6 @@ const InputField = ({
   type,
   value,
   inputStyles,
-  placeholder,
 }: InputFieldProps) => {
   const [showPassord, setShowPassord] = useState(false);
 
@@ -21,11 +20,11 @@ const InputField = ({
         keyboardType={type}
         placeholder={title}
         onChangeText={changeFormFn}
-        secureTextEntry={type === "visible-password" && !showPassord}
+        secureTextEntry={title === "Password" && !showPassord}
         className="flex-1"
         cursorColor={"#1A91DA"}
       />
-      { type === "visible-password" && <TouchableOpacity
+      { title === "Password" && <TouchableOpacity
         activeOpacity={0.7}
         onPress={() => setShowPassord((prev) => !prev)}
       >
