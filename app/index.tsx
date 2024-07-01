@@ -2,11 +2,15 @@ import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
-import { router } from "expo-router";
+import { Redirect, router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useGlobalContext } from "@/context/GlobalContext/useGlobalContext";
 
 const App = () => {
 
+  const {isConnected, isLoading} = useGlobalContext()
+
+  if(isConnected && !isLoading) <Redirect href="/chatlist" />
 
   return (
     <SafeAreaView className="flex-1 justify-center items-center w-full">

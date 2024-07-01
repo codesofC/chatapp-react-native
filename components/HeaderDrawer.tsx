@@ -1,29 +1,29 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import CustomIcons from "./CustomIcons";
-import { SvgXml } from "react-native-svg";
-import generatorAvatar from "@/lib/Dicebear/generatorAvatar";
+
 import { useNavigation } from "expo-router";
 import { DrawerActions } from "@react-navigation/native";
+import CustomAvatar from "./CustomAvatar";
+import { useGlobalContext } from "@/context/GlobalContext/useGlobalContext";
 
 const HeaderDrawer = () => {
-  const myAvatar = generatorAvatar("Cristooo");
 
   const navigation = useNavigation()
+
+  const {user} = useGlobalContext()
 
   const handleDrawer = () => {
     navigation.dispatch(DrawerActions.openDrawer())
   }
+
+  if(!user) return
+
   return (
     <View className="flex-row items-center justify-between py-4 px-6 border-b border-gray-300">
-      <TouchableOpacity 
-        className="items-center justify-center rounded-full overflow-hidden"
+      <TouchableOpacity
         onPress={handleDrawer}
     >
-        <SvgXml 
-            xml={myAvatar} 
-            width={32}
-            height={32}
-        />
+        <CustomAvatar email={user.email} avatar={user.avatar} />
       </TouchableOpacity>
       <Image
         source={require("../assets/images/logo1.png")}

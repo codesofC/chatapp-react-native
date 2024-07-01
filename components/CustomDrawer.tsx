@@ -1,16 +1,18 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
-import React from 'react'
-import { router } from 'expo-router'
+import { View, Text } from 'react-native'
+import { useGlobalContext } from '@/context/GlobalContext/useGlobalContext'
+import CustomAvatar from './CustomAvatar'
 
 const CustomDrawer = () => {
+
+  const {user} = useGlobalContext()
+
+
+  if(!user) return
+
   return (
     <View className='items-center my-8'>
-      <Image 
-        source={require('../assets/images/logo1.png')}
-        resizeMode='cover'
-        className='w-28 h-28 border'
-      />
-      <Text className='text-lg font-semibold mt-2'> Cristooo </Text>
+      <CustomAvatar email={user.email} avatar={user.avatar} avatarStyle={{width: 120, height: 120}} />
+      <Text className='text-2xl font-semibold mt-2'> {user.username} </Text>
     </View>
   )
 }

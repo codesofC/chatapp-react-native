@@ -1,3 +1,5 @@
+import ChatContextProvider from "@/context/ChatContext";
+import GlobalContextProvider from "@/context/GlobalContext";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -23,12 +25,12 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-      <Stack.Screen name="(drawer)" options={{ headerShown: false }} />      
-      <Stack.Screen name="chat" options={{ headerShown: false }} />      
-      <Stack.Screen name="details" options={{ headerShown: false }} />      
-    </Stack>
+    <GlobalContextProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="(auth)" />
+        <Stack.Screen name="(main)" />
+      </Stack>
+    </GlobalContextProvider>
   );
 }

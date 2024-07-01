@@ -1,9 +1,11 @@
 import { ChatsProps, UserProps } from "@/types";
 import { REACT_NATIVE_APP_ID, REACT_NATIVE_AUTH_DOMAIN, REACT_NATIVE_FIREBASE_API_KEY, REACT_NATIVE_PROJECT_ID, REACT_NATIVE_SENDER_ID, REACT_NATIVE_STORAGE_BUCKET } from "@env";
+
 import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
@@ -21,6 +23,8 @@ import {
   where,
 } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+
+//Persistance auth firebase react-native
 
 const firebaseConfig = {
   apiKey: REACT_NATIVE_FIREBASE_API_KEY,
@@ -104,6 +108,27 @@ export const getUser = async (uid: string) => {
     console.log(error);
   }
 };
+
+export const getCurrentUser = async () => {
+  let session: string = ""
+
+  onAuthStateChanged(auth, (userCredencial) => {
+    if(userCredencial){
+      session = userCredencial.uid;
+    }
+  })
+
+  try {
+    if(session){
+      const response = await getUser(session)
+      return response
+    }else {
+      return null
+    }
+  } catch (error) {
+    throw new Error(error as string)
+  }
+}
 
 //Get Chats Data of user
 export const getChats = async (uid: string) => {

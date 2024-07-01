@@ -1,4 +1,4 @@
-import { Timestamp } from "firebase/firestore";
+import { FieldValue, Timestamp } from "firebase/firestore";
 import { KeyboardTypeOptions } from "react-native";
 
 export interface InputFieldProps {
@@ -20,7 +20,13 @@ export interface CustomButtonProps {
     title: string,
     pressButtonFn?: () => void,
     buttonStyle?: string,
-    textStyle?: string
+    textStyle?: string,
+    isSubmitting?: boolean
+}
+
+export interface HeaderChatListProps {
+    search: string,
+    setSearch: React.Dispatch<React.SetStateAction<string>>
 }
 
 export interface FileProfilPhotoProps {
@@ -63,3 +69,51 @@ export interface ReceiverProps {
 export interface ChatsProps {
     chats: ReceiverProps []
 }
+
+export interface GlobalContextProps{
+    user: UserProps | null,
+    setUser: React.Dispatch<React.SetStateAction<UserProps | null>>,
+    isLoading: boolean,
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+    isConnected: boolean,
+    setIsConnected: React.Dispatch<React.SetStateAction<boolean>>,
+}
+
+export interface AvatarProps{
+    email: string,
+    avatar?: string,
+    avatarStyle?: {
+        width: number,
+        height: number
+    }
+}
+
+export interface MessageProps{
+    type: "text" | "media",
+    content: string,
+    senderId: string,
+    sendedAt: Date
+}
+
+export interface ChatDataProps{
+    createdAt: FieldValue,
+    messages: MessageProps[]
+}
+
+export interface ChatContextProps{
+    currentReceiver: ReceiverProps | undefined,
+    setCurrentReceiver: React.Dispatch<React.SetStateAction<ReceiverProps | undefined>>,
+    chatData: ChatDataProps | undefined,
+    setChatData: React.Dispatch<React.SetStateAction<ChatDataProps | undefined>>,
+    showDetails: boolean,
+    setShowDetails: React.Dispatch<React.SetStateAction<boolean>>
+    showChatList: boolean,
+    setShowChatList: React.Dispatch<React.SetStateAction<boolean>>
+}
+export interface MessagesProps {
+    content: string
+    senderId: string
+    sendedAt: string
+    userId: string
+};
+  

@@ -1,11 +1,13 @@
-import { View, Image, Text } from 'react-native'
-import React, { useState } from 'react'
+import { View, Image, Text, Alert } from 'react-native'
+import { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { LinearGradient } from 'expo-linear-gradient'
 import InputField from '@/components/InputField'
 import CustomButton from '@/components/CustomButton'
 import { Link, router } from 'expo-router'
-import { signIn } from '@/lib/Firebase'
+import { getUser, signIn } from '@/lib/Firebase'
+import { useGlobalContext } from '@/context/GlobalContext/useGlobalContext'
+import { UserProps } from '@/types'
 
 
 const SignIn = () => {
@@ -15,14 +17,37 @@ const SignIn = () => {
     password: ""
   })
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const {setIsConnected, setUser} = useGlobalContext()
+
+
   const submitData = async () => {
-    if(!form.email || !form.password) return
+    if (!form.email || !form.password) {
+      return Alert.alert("Error", "Please, fill all inputs!");
+    }
+
+    setIsSubmitting(true)
 
     await signIn(form.email, form.password)
-    .then(userId => {
+    .then(async (userId) => {
       if(userId){
-        router.push("/chatlist")
+        await getUser(userId)
+        .then(userData => {
+          setIsConnected(true)
+          setUser(userData as UserProps)
+        })
+        .catch(error => {
+          Alert.alert("Error", "Failed fetching user signIn: ", error.message);
+        })
+        router.replace("/chatlist")
       }
+    })
+    .catch((error) => {
+      Alert.alert("Error", "Error sign in user: ", error.message)
+    })
+    .finally(() => {
+      setIsSubmitting(false)
     })
   }
 
@@ -65,6 +90,7 @@ const SignIn = () => {
               pressButtonFn={submitData}
               buttonStyle='mt-8 bg-primary'
               textStyle='text-primary-foreground'
+              isSubmitting={isSubmitting}
             />
           </View>
         </View>

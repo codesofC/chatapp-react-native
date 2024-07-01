@@ -35,6 +35,7 @@ export default function DrawerLayout() {
                 size={28}
               />
             ),
+            headerShown: false
           }}
         />
         <Drawer.Screen
