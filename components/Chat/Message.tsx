@@ -1,5 +1,4 @@
 import { View, Text, Image } from "react-native";
-import React from "react";
 import { MessagesProps } from "@/types";
 
 //Component message text type
@@ -11,14 +10,18 @@ export const MessageText = ({
 }: MessagesProps) => {
   return (
     <View
-      className={`w-full relative px-2 py-1 flex gap-2 items-end rounded-md ${
-        senderId === userId ? "bg-primary" : "bg-secondary"
+      className={`max-w-[70%] relative flex-row px-1 py-1 gap-x-1 rounded-lg items-end ${
+        senderId === userId ? "bg-primary self-end" : "bg-gray-300 self-start"
       }`}
     >
-      <Text className="text-white bg-primary p-2 rounded-md">
+      <Text className={`py-2 flex-wrap max-w-[90%] ${
+        senderId === userId ? "text-primary-foreground" : "text-secondary-foreground"
+      }`}>
         {content}
       </Text>
-      <Text className="text-xs"> {sendedAt} </Text>
+      <Text className={`text-[10px] ${
+        senderId === userId ? "text-primary-foreground/70" : "text-secondary-foreground/70"
+      }`}> {sendedAt} </Text>
     </View>
   );
 };
@@ -33,17 +36,19 @@ export const MessageImage = ({
 }: MessagesProps) => {
 
   return (
-    <View className={`relative text-foreground flex gap-2 items-end bg-black rounded-md overflow-hidden cursor-pointer`}>
+    <View className={`max-w-[70%] relative bg-black rounded-md overflow-hidden ${
+      senderId === userId ? "self-end" : "self-start"
+    }`}>
       <Image 
         source={{uri: content}}
         resizeMode="cover"
-        className="w-full h-[250px]"
+        className="w-[250px] h-[250px]"
       />
 
-      <View className={`flex text-xs absolute bottom-2 z-[1] ${
+      <View className={`absolute bottom-2 z-[1] ${
         senderId === userId ? "left-4" : "right-4"
       }`}>
-        <Text className="text-white"> {sendedAt} </Text>
+        <Text className="text-primary-foreground font-bold"> {sendedAt} </Text>
       </View>
     </View>
   )

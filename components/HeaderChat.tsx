@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Pressable } from "react-native";
 import React from "react";
 import CustomIcons from "./CustomIcons";
 import { SvgXml } from "react-native-svg";
@@ -7,9 +7,9 @@ import { router } from "expo-router";
 
 const HeaderChat = () => {
   return (
-    <View className="flex-row justify-between items-center px-3 py-4 border-b border-gray-300">
+    <Pressable className="flex-row justify-between items-center px-3 py-4 border-b border-gray-300" onPress={() => router.push("/details")}>
       <View className="flex-row gap-x-2 items-center">
-        <TouchableOpacity activeOpacity={.8} onPress={() => router.back()}>
+        <TouchableOpacity activeOpacity={0.8} onPress={() => router.back()}>
           <CustomIcons name="chevron-back-sharp" />
         </TouchableOpacity>
         <View className="rounded-full overflow-hidden">
@@ -28,7 +28,7 @@ const HeaderChat = () => {
           <CustomIcons name="ellipsis-vertical-sharp" />
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
