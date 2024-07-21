@@ -3,6 +3,7 @@
     "name": "snaptalk",
     "slug": "snaptalk",
     "version": "1.0.0",
+    "scheme": "snaptalk",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -18,10 +19,14 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.codesofc.snaptalk"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
