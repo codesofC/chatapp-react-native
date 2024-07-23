@@ -65,7 +65,7 @@ const AddNewChat = ({ openModal, setOpenModal }: ModalProps) => {
   return (
     <Modal visible={openModal} transparent animationType="slide">
       <View className="relative flex-1 w-full items-center justify-end">
-        <View className="w-full px-6 py-4 items-center max-h-72 justify-center bg-secondary rounded-t-2xl shadow-2xl border border-gray-300">
+        <View className="w-full px-6 py-4 items-center max-h-72 justify-center bg-secondary rounded-t-2xl -shadow-2xl border border-b-0 border-gray-300">
           <View className="flex-row justify-between w-full">
             <Text className="font-bold text-xl mb-4"> New Chat </Text>
             <TouchableOpacity

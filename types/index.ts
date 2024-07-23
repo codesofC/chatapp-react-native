@@ -30,14 +30,14 @@ export interface HeaderChatListProps {
 }
 
 export interface FileProfilPhotoProps {
-    name: string | null | undefined,
+    name: string,
     uri: string
 }
 
 export interface SignupDataProps {
     email: string,
-    username?: string,
-    password?: string,
+    username: string,
+    password: string,
     file: FileProfilPhotoProps | null
 }
 

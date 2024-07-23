@@ -89,6 +89,14 @@ const ChatList = () => {
             data={allChatsData}
             renderItem={renderItem}
             keyExtractor={(item) => item.receiverId}
+            ListEmptyComponent={() => (
+              <View className="w-full mt-16 items-center justify-center flex-1">
+                <Text className="font-semibold ">
+                  {" "}
+                  No conversation yet!{" "}
+                </Text>
+              </View>
+            )}
           />
         ) : (
           <View className="items-center mt-4 flex-1">

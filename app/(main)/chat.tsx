@@ -68,10 +68,10 @@ const Chat = () => {
           renderItem={renderItem}
           keyExtractor={(_item, index) => index.toString()}
           ListEmptyComponent={() => (
-            <View className="w-full mt-4 h-full flex items-center justify-center">
+            <View className="w-full mt-4 h-full flex-1 items-center justify-center">
               <Text className="font-semibold ">
                 {" "}
-                No messages sended already!{" "}
+                No messages sent yet!{" "}
               </Text>
             </View>
           )}

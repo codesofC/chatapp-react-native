@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, FlatList, Image } from "react-native";
+import { View, TouchableOpacity, FlatList, Image, Text } from "react-native";
 import { List } from "react-native-paper";
 import CustomIcons from "../CustomIcons";
 import { useState } from "react";

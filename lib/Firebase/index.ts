@@ -151,8 +151,8 @@ export const getChats = async (uid: string) => {
 export const uploadFiles = async (name: string, file: Blob) => {
   try {
     const fileRef = ref(storage, `files/${name}`);
-    await uploadBytes(fileRef, file);
-    const url = await getDownloadURL(fileRef);
+    const fileUploaded = await uploadBytes(fileRef, file);
+    const url = await getDownloadURL(fileUploaded.ref);
     return url;
   } catch (error) {
     console.log("File not uploaded: ", error);

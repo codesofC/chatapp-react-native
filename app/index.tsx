@@ -23,7 +23,6 @@ const App = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user);
       if(user){
         getUserData(user.uid)
       }
@@ -49,7 +48,7 @@ const App = () => {
   return (
     <SafeAreaView className="relative flex-1 w-full bg-primary">
       <View className="w-full h-full items-center">
-        <View className="relative w-20 h-20 mb-4">
+        <View className="relative w-20 h-20 my-4">
           <Image
             source={require("../assets/images/logo2.png")}
             resizeMode="contain"

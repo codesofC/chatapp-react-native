@@ -8,6 +8,7 @@ const CustomButton = ({title, buttonStyle, pressButtonFn, textStyle, isSubmittin
         activeOpacity={.7}
         className={`flex-row items-center justify-center p-2 ${buttonStyle} rounded-full`}
         onPress={pressButtonFn}
+        disabled={isSubmitting}
     >
       { isSubmitting ? <ActivityIndicator size={'small'} color="white" /> :
       <Text className={`text-lg font-semibold ${textStyle}`}>{title}</Text>}
