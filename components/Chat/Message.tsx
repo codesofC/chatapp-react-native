@@ -11,7 +11,7 @@ export const MessageText = ({
   return (
     <View
       className={`max-w-[70%] relative flex-row px-1 py-1 gap-x-1 rounded-lg items-end ${
-        senderId === userId ? "bg-primary self-end" : "bg-gray-300 self-start"
+        senderId === userId ? "bg-primary self-end" : "bg-gray-200 self-start"
       }`}
     >
       <Text className={`py-2 flex-wrap max-w-[90%] ${

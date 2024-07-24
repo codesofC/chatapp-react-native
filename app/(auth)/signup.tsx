@@ -1,4 +1,11 @@
-import { View, Image, TouchableOpacity, Text, ScrollView, Alert } from "react-native";
+import {
+  View,
+  Image,
+  TouchableOpacity,
+  Text,
+  ScrollView,
+  Alert,
+} from "react-native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -34,20 +41,21 @@ const Signup = () => {
 
   //Submit data to sign up
   const submitData = async () => {
-
-    if(!form.email || !form.password || !form.username){
-
-      return Alert.alert("Fields missing", "Please, fill all inputs!")
+    if (!form.email || !form.password || !form.username) {
+      return Alert.alert("Fields missing", "Please, fill all inputs!");
     }
 
     let url: string | undefined;
 
     if (form.file) {
-      const blob = new Blob([form.file as any], {type: "image/jpeg" || "image/jpg" || "image/png" || "image/webp" || "image/gif"})
+      // Convert Image uri to Blob
+      const response = await fetch(form.file.uri);
+      const blob = await response.blob();
+
       url = await uploadFiles(form.file.name, blob);
     }
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
 
     await signup(form.email, form.password)
       .then(async (userId) => {
@@ -71,13 +79,13 @@ const Signup = () => {
         Alert.alert("Error to sign up", error.message);
       })
       .finally(() => {
-        setIsSubmitting(false)
+        setIsSubmitting(false);
         setForm({
           email: "",
           password: "",
           username: "",
-          file: null
-        })
+          file: null,
+        });
       });
   };
 

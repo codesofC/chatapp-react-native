@@ -1,5 +1,6 @@
-import { View, Pressable, Image, Modal } from "react-native";
+import { View, Pressable, Image, Modal, ActivityIndicator } from "react-native";
 import CustomIcons from "../CustomIcons";
+import { FontAwesome5 } from '@expo/vector-icons';
 import { FileProps } from "../../types";
 import {
   updateChatsData,
@@ -8,6 +9,7 @@ import {
 } from "../../lib/Firebase";
 import { useGlobalContext } from "../../context/GlobalContext/useGlobalContext";
 import { useChatContext } from "../../context/ChatContext/useChatContext"
+import { useState } from "react";
 
 type PickMediaProps = {
   file: FileProps;
@@ -15,10 +17,16 @@ type PickMediaProps = {
 };
 
 const PickMediaContainer = ({ file, setFile }: PickMediaProps) => {
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const { user } = useGlobalContext();
   const { currentReceiver } = useChatContext();
 
   const sendMedia = async () => {
+
+    setIsSubmitting(true)
+
     // Convert Image uri to Blob
     const response = await fetch(file.uri);
     const blob = await response.blob();
@@ -38,16 +46,17 @@ const PickMediaContainer = ({ file, setFile }: PickMediaProps) => {
           [user.uid, currentReceiver.receiverId],
           urlFile,
           "media"
-        );
+        )
 
         setFile({ name: "", uri: "" });
       }
     }
+    setIsSubmitting(false)
   };
 
   return (
     <Modal visible={!!file} animationType="slide">
-      <View className=" flex-1 w-full h-full bg-black z-50 items-end justify-center gap-y-2 p-4">
+      <View className=" flex-1 w-full h-full bg-black z-50 items-end justify-center gap-y-2 px-4 py-6">
         <Pressable onPress={() => setFile({ name: "", uri: "" })}>
           <CustomIcons name="close-sharp" color="white" size={32} />
         </Pressable>
@@ -57,10 +66,11 @@ const PickMediaContainer = ({ file, setFile }: PickMediaProps) => {
           className="flex-1 w-full"
         />
         <Pressable
-          className="py-2 px-3 bg-primary rounded-lg items-center justify-center"
+          className="px-5 py-4 bg-primary rounded-full items-center justify-center"
           onPress={async () => await sendMedia()}
+          disabled={isSubmitting}
         >
-          <CustomIcons name="send-sharp" size={32} color="white" />
+          {!isSubmitting ? (<FontAwesome5 name="arrow-right" size={25} color="white" />) : (<ActivityIndicator color="white" />)}
         </Pressable>
       </View>
     </Modal>

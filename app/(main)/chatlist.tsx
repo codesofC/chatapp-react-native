@@ -83,7 +83,7 @@ const ChatList = () => {
   return (
     <SafeAreaView className="relative flex-1 bg-primary">
       <HeaderChatList search={search} setSearch={setSearch} />
-      <View className="flex-1 rounded-t-3xl bg-secondary">
+      <View className="flex-1 rounded-t-3xl bg-secondary dark:bg-secondary-foreground">
         {allChatsData ? (
           <FlatList
             data={allChatsData}
@@ -112,7 +112,7 @@ const ChatList = () => {
         <CustomIcons name="add-sharp" size={40} color="white" />
       </Pressable>
 
-      <AddNewChat openModal={openModal} setOpenModal={setOpenModal} />
+      <AddNewChat openModal={openModal} setOpenModal={setOpenModal} allChatsData={allChatsData} />
     </SafeAreaView>
   );
 };

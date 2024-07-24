@@ -32,11 +32,15 @@ const ChatCard = ({ chat }: { chat: ReceiverProps }) => {
 
   return (
     <Pressable
-      className="relative flex-row justify-between items-end px-6 py-4"
       onPress={changeUserViewMessage}
       style={({pressed}) => [
         {
-          backgroundColor: pressed ? '#1A91DA' : 'transparent'
+          backgroundColor: pressed ? '#1A91DA' : 'transparent',
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+          paddingVertical: 16,
+          paddingHorizontal: 24
         }
       ]}
     >
@@ -47,16 +51,16 @@ const ChatCard = ({ chat }: { chat: ReceiverProps }) => {
           avatarStyle={{ width: 48, height: 48 }}
         />
         <View>
-          <Text className="font-semibold text-lg">
+          <Text className="font-semibold text-lg text-secondary-foreground dark:text-secondary">
             {" "}
             {chat.receiverData?.username}{" "}
           </Text>
-          <Text className="text-sm"> {chat.lastMessage} </Text>
+          <Text className="text-sm text-secondary-foreground dark:text-secondary"> {chat.lastMessage} </Text>
         </View>
       </View>
       <View className="items-center space-y-2">
         {!chat.isSeen && <View className="w-2 h-2 bg-primary rounded-full" />}
-        <Text className="text-xs font-extralight"> {convertDate(chat.updatedAt)} </Text>
+        <Text className="text-xs font-extralight text-secondary-foreground dark:text-secondary"> {convertDate(chat.updatedAt)} </Text>
       </View>
     </Pressable>
   );

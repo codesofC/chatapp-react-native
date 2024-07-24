@@ -8,7 +8,7 @@ module.exports = {
         "primary": "#1A91DB",
         "secondary": "#F5F5F5",
         "primary-foreground": "#FEF2F2",
-        "secondary-foreground": "#171717"
+        "secondary-foreground": "#20232A"
       }
     },
   },
