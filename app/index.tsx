@@ -55,7 +55,7 @@ const App = () => {
             className="w-full h-full"
           />
         </View>
-        <View className="w-full flex-1 justify-between px-4 py-8 bg-white rounded-t-3xl">
+        <View className="w-full flex-1 justify-between px-4 py-8 bg-secondary dark:bg-secondary-foreground rounded-t-3xl">
           <View className="items-center space-y-2">
             <View className="w-full h-[350px]">
               <Image
@@ -65,8 +65,8 @@ const App = () => {
               />
             </View>
             <View className="items-center">
-              <Text className="text-4xl font-bold"> SnapTalk </Text>
-              <Text className="text-secondary-foreground/70">
+              <Text className="text-4xl font-bold text-secondary-foreground dark:text-secondary"> SnapTalk </Text>
+              <Text className="text-secondary-foreground dark:text-secondary">
                 {" "}
                 Be always with your friends anywhere{" "}
               </Text>

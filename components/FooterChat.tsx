@@ -10,6 +10,7 @@ import { updateChatsData, updateUserChatsData, uploadFiles } from "../lib/Fireba
 import { pickImageFn } from "../constants"
 import PickMediaContainer from "./Chat/PickMediaContainer";
 import { FileProps } from "../types";
+import { useColorScheme } from "nativewind";
 
 const FooterChat = ({ setFile }: {setFile: React.Dispatch<React.SetStateAction<FileProps>>}) => {
   const [text, setText] = useState("");
@@ -18,6 +19,8 @@ const FooterChat = ({ setFile }: {setFile: React.Dispatch<React.SetStateAction<F
 
   const {user} = useGlobalContext()
   const { currentReceiver } = useChatContext()
+
+  const {colorScheme} = useColorScheme()
 
 
   useEffect(() => {
@@ -67,8 +70,8 @@ const FooterChat = ({ setFile }: {setFile: React.Dispatch<React.SetStateAction<F
   }
 
   return (
-    <View className={`w-full pt-2 ${!showPicker ? 'pb-2' : null} items-center overflow-x-hidden bg-secondary`}>
-      <View className="flex-row items-center border border-gray-300 rounded-md mx-4 px-3 py-1">
+    <View className={`w-full pt-2 ${!showPicker ? 'pb-2' : null} items-center overflow-x-hidden bg-secondary dark:bg-secondary-foreground`}>
+      <View className="flex-row items-center border border-gray-300 rounded-full mx-4 px-3 py-1">
         <TouchableOpacity
           activeOpacity={0.8}
           onPress={openPicker}
@@ -79,7 +82,8 @@ const FooterChat = ({ setFile }: {setFile: React.Dispatch<React.SetStateAction<F
           value={text}
           onChangeText={(e) => setText(e)}
           placeholder="Type Something..."
-          className="flex-1 p-2"
+          className="flex-1 p-2 text-secondary-foreground dark:text-secondary"
+          placeholderTextColor={colorScheme === "light" ? 'gray' : 'white'}
         />
         <View className="flex-row gap-x-3 items-center">
           <Pressable onPress={pickImageDocument}>

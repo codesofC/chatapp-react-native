@@ -9,6 +9,7 @@ import InputField from '../../components/InputField'
 import { useGlobalContext } from '../../context/GlobalContext/useGlobalContext'
 import { getUser, signIn } from '../../lib/Firebase'
 import { UserProps } from '../../types'
+import { useColorScheme } from 'nativewind'
 
 const SignIn = () => {
 
@@ -62,11 +63,11 @@ const SignIn = () => {
             className="w-full h-full"
           />
         </View>
-        <View className="w-full flex-1 justify-between px-4 py-8 bg-white rounded-t-3xl">
+        <View className="w-full flex-1 justify-between px-4 py-8 bg-secondary dark:bg-secondary-foreground rounded-t-3xl">
           <View className="items-center">
             <View className="items-center">
-              <Text className="text-4xl font-bold"> SnapTalk </Text>
-              <Text className="text-secondary-foreground/70">
+              <Text className="text-4xl font-bold text-secondary-foreground dark:text-secondary"> SnapTalk </Text>
+              <Text className="text-secondary-foreground dark:text-secondary">
                 {" "}
                 Be always with your friends anywhere{" "}
               </Text>
@@ -101,8 +102,8 @@ const SignIn = () => {
             <CustomButton
               title="Create Account"
               pressButtonFn={() => router.push("/signup")}
-              buttonStyle="mt-4 bg-transparent border border-black"
-              textStyle="text-secondary-foreground"
+              buttonStyle="mt-4 bg-transparent border border-secondary-foreground dark:border-secondary"
+              textStyle="text-secondary-foreground dark:text-secondary"
             />
           </View>
           </View>

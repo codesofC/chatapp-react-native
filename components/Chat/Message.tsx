@@ -10,8 +10,8 @@ export const MessageText = ({
 }: MessagesProps) => {
   return (
     <View
-      className={`max-w-[70%] relative flex-row px-1 py-1 gap-x-1 rounded-lg items-end ${
-        senderId === userId ? "bg-primary self-end" : "bg-gray-200 self-start"
+      className={`max-w-[70%] relative flex-row px-1 py-1 gap-x-1 rounded-2xl items-end ${
+        senderId === userId ? "bg-primary self-end rounded-br-none" : "bg-gray-200 self-start rounded-bl-none"
       }`}
     >
       <Text className={`py-2 flex-wrap max-w-[90%] ${

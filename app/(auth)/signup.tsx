@@ -93,10 +93,10 @@ const Signup = () => {
     <SafeAreaView className="relative flex-1 w-full bg-primary">
       <View className="w-full h-full">
         <View className="relative w-12 h-12 mb-2" />
-        <View className="w-full flex-1 justify-center space-y-8 px-4 py-8 bg-white rounded-t-3xl">
+        <View className="w-full flex-1 justify-center space-y-8 px-4 py-8 bg-secondary dark:bg-secondary-foreground rounded-t-3xl">
           <View className="items-center space-y-1">
-            <Text className="text-3xl font-bold"> Welcome </Text>
-            <Text className="text-sm font-normal">
+            <Text className="text-3xl font-bold text-secondary-foreground dark:text-secondary"> Welcome </Text>
+            <Text className="text-sm font-normal text-secondary-foreground dark:text-secondary">
               {" "}
               Sign up to start talking with your friends{" "}
             </Text>
@@ -164,8 +164,8 @@ const Signup = () => {
                 <CustomButton
                   title="Sign In"
                   pressButtonFn={() => router.push("/signin")}
-                  buttonStyle="mt-4 bg-transparent border"
-                  textStyle="text-secondary-foreground"
+                  buttonStyle="mt-4 bg-transparent border border-secondary-foreground dark:border-secondary"
+                  textStyle="text-secondary-foreground dark:text-secondary"
                 />
               </View>
             </View>

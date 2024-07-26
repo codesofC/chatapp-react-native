@@ -62,7 +62,7 @@ const AddNewChat = ({ openModal, setOpenModal, allChatsData }: ModalProps) => {
           avatar={item.avatar}
           avatarStyle={{ width: 45, height: 45 }}
         />
-        <Text className="font-semibold text-lg ml-2"> {item.username} </Text>
+        <Text className="font-semibold text-lg ml-2 text-secondary-foreground dark:text-secondary"> {item.username} </Text>
       </View>
 
       <CustomButton
@@ -76,15 +76,15 @@ const AddNewChat = ({ openModal, setOpenModal, allChatsData }: ModalProps) => {
 
   return (
     <Modal visible={openModal} transparent animationType="slide">
-      <View className="relative flex-1 w-full items-center justify-end px-2">
-        <View className="w-full px-6 py-4 max-h-72 justify-center bg-secondary rounded-t-2xl -shadow-2xl border border-b-0 border-gray-300 overflow-hidden">
+      <View className="relative flex-1 w-full items-center justify-end px-2 py-4">
+        <View className="w-full px-6 py-4 max-h-72 justify-center bg-secondary dark:bg-secondary-foreground rounded-2xl -shadow-2xl border border-gray-300 dark:border-gray-700 mb-4 overflow-hidden">
           <View className="flex-row justify-between w-full">
-            <Text className="font-bold text-xl mb-4"> New Chat </Text>
+            <Text className="font-bold text-xl mb-4 text-secondary-foreground dark:text-secondary"> New Chat </Text>
             <TouchableOpacity
               activeOpacity={0.7}
               onPress={closeModal}
             >
-              <CustomIcons name="close" color="black" size={25} />
+              <CustomIcons name="close" size={25} />
             </TouchableOpacity>
           </View>
           <InputField
@@ -93,7 +93,7 @@ const AddNewChat = ({ openModal, setOpenModal, allChatsData }: ModalProps) => {
             title="Username"
           />
           <View className="mt-4">
-            <Text className="font-semibold"> User(s) founded: </Text>
+            <Text className="font-semibold text-secondary-foreground dark:text-secondary"> User(s) founded: </Text>
 
             {usersFounded.length > 0 ? (
               <FlatList
@@ -102,7 +102,7 @@ const AddNewChat = ({ openModal, setOpenModal, allChatsData }: ModalProps) => {
                 keyExtractor={(item) => item.uid}
               />
             ) : (
-              <Text className="mt-2 text-center"> No user founded! </Text>
+              <Text className="mt-2 text-center text-secondary-foreground dark:text-secondary"> No user founded! </Text>
             )}
           </View>
         </View>
