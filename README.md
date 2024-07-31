@@ -31,6 +31,24 @@ To run the project in your local environment, follow these steps:
 - Open your emulator or device and access the application via expo.
   
 ## 🖼 Demo Images
+<table>
+  <tr>
+    <td style="width: 45%; padding: 10px; box-sizing: border-box;">
+      <img src="https://github.com/user-attachments/assets/e2c837b9-2555-4159-9a0e-b8a4e9b3ce54" alt="image description 1" width="100%">
+    </td>
+    <td style="width: 45%; padding: 10px; box-sizing: border-box;">
+      <img src="https://github.com/user-attachments/assets/043ad4cf-2a66-4a78-beda-9ebc70ce3fe" alt="image description 2" width="100%">
+    </td>
+  </tr>
+    <tr>
+    <td style="width: 45%; padding: 10px; box-sizing: border-box;">
+      <img src="https://github.com/user-attachments/assets/e2c837b9-2555-4159-9a0e-b8a4e9b3ce54" alt="image description 1" width="100%">
+    </td>
+    <td style="width: 45%; padding: 10px; box-sizing: border-box;">
+      <img src="https://github.com/user-attachments/assets/043ad4cf-2a66-4a78-beda-9ebc70ce3fe" alt="image description 2" width="100%">
+    </td>
+  </tr>
+</table>
 ![Imagem do WhatsApp de 2024-07-31 à(s) 00 20 56_d8f161f4](https://github.com/user-attachments/assets/e2c837b9-2555-4159-9a0e-b8a4e9b3ce54)
 ![Imagem do WhatsApp de 2024-07-31 à(s) 00 20 58_a7ca15ef](https://github.com/user-attachments/assets/043ad4cf-2a66-4a78-beda-9ebc70ce3fea)
 ![Imagem do WhatsApp de 2024-07-31 à(s) 00 20 56_760f12aa](https://github.com/user-attachments/assets/bf593e6e-d516-4e26-856c-2feae476d981)
