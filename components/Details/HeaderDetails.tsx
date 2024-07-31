@@ -24,7 +24,7 @@ const HeaderDetails = ({ avatarData, username }: HeaderDetailsProps) => {
           />
         </View>
       </View>
-      <Text className="font-semibold text-xl"> {username} </Text>
+      <Text className="font-semibold text-xl text-secondary-foreground dark:text-secondary"> {username} </Text>
     </View>
   );
 };

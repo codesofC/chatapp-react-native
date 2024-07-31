@@ -9,7 +9,7 @@ const details = () => {
 
   return (
     currentReceiver?.receiverData && (
-      <SafeAreaView className="flex-1">
+      <SafeAreaView className="flex-1 bg-secondary dark:bg-secondary-foreground">
         <View className="flex-1">
           <HeaderDetails
             avatarData={{

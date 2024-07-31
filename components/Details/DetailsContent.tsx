@@ -5,11 +5,14 @@ import { useState } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MessageProps } from "../../types";
 import { useChatContext } from "../../context/ChatContext/useChatContext";
+import { useColorScheme } from "nativewind";
 
 const DetailsContent = () => {
   const [expanded, setExpanded] = useState(false);
 
   const { chatData } = useChatContext();
+
+  const {colorScheme} = useColorScheme()
 
   const handlePress = () => setExpanded((prev) => !prev);
 
@@ -24,7 +27,7 @@ const DetailsContent = () => {
               className="w-[60px] h-[60px] rounded-md"
             />
             <TouchableOpacity>
-              <MaterialIcons name="file-download" size={24} color="black" />
+              <MaterialIcons name="file-download" size={24} color={colorScheme === "dark" ? "white" : "black"} />
             </TouchableOpacity>
           </View>
         )}
@@ -44,6 +47,8 @@ const DetailsContent = () => {
           )}
           expanded={expanded}
           onPress={handlePress}
+          style={{backgroundColor: colorScheme === "dark" ? "#1c1c1c" : "#F5F5F5"}}
+          titleStyle={{color: colorScheme === "dark" ? "#F5F5F5" : "#1c1c1c"}}
         >
           <FlatList
             data={chatData?.messages}
@@ -58,7 +63,9 @@ const DetailsContent = () => {
               {...props}
               icon={() => <CustomIcons name="settings" />}
             />
-          )}
+          )} 
+          style={{backgroundColor: colorScheme === "dark" ? "#1c1c1c" : "#F5F5F5"}}
+          titleStyle={{color: colorScheme === "dark" ? "#F5F5F5" : "#1c1c1c"}}
         >
           <List.Item title="Setttings item" />
         </List.Accordion>

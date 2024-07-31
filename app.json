@@ -8,12 +8,13 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/logo1.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.codesofc.snaptalk"
     },
     "android": {
       "adaptiveIcon": {
@@ -27,6 +28,14 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4e0cfab3-2b8c-416f-a10f-177b4e841a3f"
+      }
+    }
   }
 }
