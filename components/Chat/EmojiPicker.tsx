@@ -1,6 +1,6 @@
 import { EmojiPickerProps } from "../../types"
 import EmojiModal from 'react-native-emoji-modal';
-import { ScrollView, View } from "react-native";
+import { ScrollView } from "react-native";
 
 const EmojiPicker = ({
   setText,

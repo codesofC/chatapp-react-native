@@ -141,20 +141,6 @@ const HeaderChatList = ({ search, setSearch }: HeaderChatListProps) => {
           <Text className="text-sm  text-secondary font-semibold "> Settings </Text>
         </Pressable>
       </View>
-      {/* <View className="py-4 px-6">
-        <TextInput
-          value={search}
-          onChangeText={(e) => setSearch(e)}
-          placeholder="Search conversation..."
-          className="border border-gray-300 px-2 py-1 rounded-md"
-        />
-      </View> */}
-      {/* <CustomButton
-        title="Sign out"
-        buttonStyle="bg-primary px-3 py-2"
-        textStyle="text-white"
-        pressButtonFn={deconnexionFn}
-      /> */}
     </View>
   );
 };
